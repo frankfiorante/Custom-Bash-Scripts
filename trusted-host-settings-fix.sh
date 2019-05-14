@@ -26,4 +26,10 @@ sed -i 731i\ "\$settings[\'trusted_host_patterns\'] = array(\'^$1\.codeanyapp\.c
 sudo mv settings.php sites/default
 sudo chmod 644 sites/default/settings.php
 
-echo "done, settings.php was updated"
+#Changing .htaccess to allow lager file sizes
+sudo echo "" >> .htaccess
+sudo echo "php_value	upload_max_filesize	20M" >> .htaccess
+sudo echo "php_value	post_max_size	50M" >> .htaccess
+
+echo "settings.php was updated"
+echo ".htaccess was updated"
